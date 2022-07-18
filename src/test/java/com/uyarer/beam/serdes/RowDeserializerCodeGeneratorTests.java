@@ -30,6 +30,7 @@ import static com.uyarer.beam.serdes.utils.SerDesTestUtils.createRecord;
 import static com.uyarer.beam.serdes.utils.SerDesTestUtils.createUnionField;
 import static com.uyarer.beam.serdes.utils.SerDesTestUtils.createUnionSchema;
 import static com.uyarer.beam.serdes.utils.SerDesTestUtils.serializeAvro;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.net.URL;
@@ -50,10 +51,10 @@ import org.apache.avro.generic.GenericRecordBuilder;
 import org.apache.avro.io.DatumReader;
 import org.apache.avro.io.Decoder;
 import org.apache.beam.sdk.values.Row;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 public class RowDeserializerCodeGeneratorTests {
 
@@ -63,7 +64,7 @@ public class RowDeserializerCodeGeneratorTests {
   /**
    * {@inheritDoc}
    */
-  @Before
+  @BeforeEach
   public void prepare() throws Exception {
     Path tempPath = Files.createTempDirectory("generated");
     tempDir = tempPath.toFile();
@@ -119,7 +120,7 @@ public class RowDeserializerCodeGeneratorTests {
     Row expected = deserializeDummy(recordSchema, recordSchema, serializeAvro(record));
 
     // Compare with Regular way and Generated Code results
-    Assert.assertEquals(expected, row);
+    assertEquals(expected, row);
 
   }
 
@@ -145,7 +146,7 @@ public class RowDeserializerCodeGeneratorTests {
     Row expected = deserializeDummy(recordSchema, recordSchema, serializeAvro(record));
 
     // Compare with Regular way and Generated Code results
-    Assert.assertEquals(expected, row);
+    assertEquals(expected, row);
   }
 
   @Test
@@ -177,7 +178,7 @@ public class RowDeserializerCodeGeneratorTests {
     Row expected = deserializeDummy(recordSchema, recordSchema1, serializeAvro(record));
 
     // Compare with Regular way and Generated Code results
-    Assert.assertEquals(expected, row);
+    assertEquals(expected, row);
   }
 
   @Test
@@ -205,11 +206,11 @@ public class RowDeserializerCodeGeneratorTests {
     Row expected = deserializeDummy(recordSchema, recordSchema, serializeAvro(record));
 
     // Compare with Regular way and Generated Code results
-    Assert.assertEquals(expected, row);
+    assertEquals(expected, row);
   }
 
   @Test
-  @Ignore
+  @Disabled
   public void testNestedCollectionsField() {
     // prepare
     Schema subRecordSchema = createRecord("subRecord",
@@ -242,7 +243,7 @@ public class RowDeserializerCodeGeneratorTests {
     Row expected = deserializeDummy(recordSchema, recordSchema, serializeAvro(record));
 
     // Compare with Regular way and Generated Code results
-    Assert.assertEquals(expected, row);
+    Assertions.assertEquals(expected, row);
   }
 
   @Test
@@ -270,7 +271,7 @@ public class RowDeserializerCodeGeneratorTests {
     Row expected = deserializeDummy(recordSchema, recordSchema, serializeAvro(record));
 
     // Compare with Regular way and Generated Code results
-    Assert.assertEquals(expected, row);
+    Assertions.assertEquals(expected, row);
   }
 
   @Test
@@ -296,7 +297,7 @@ public class RowDeserializerCodeGeneratorTests {
     Row expected = deserializeDummy(record1Schema, record2Schema, serializeAvro(record));
 
     // Compare with Regular way and Generated Code results
-    Assert.assertEquals(expected, row);
+    Assertions.assertEquals(expected, row);
   }
 
   @Test
@@ -348,7 +349,7 @@ public class RowDeserializerCodeGeneratorTests {
     Row expected = deserializeDummy(record1Schema, record2Schema, serializeAvro(record));
 
     // Compare with Regular way and Generated Code results
-    Assert.assertEquals(expected, row);
+    Assertions.assertEquals(expected, row);
   }
 
   @Test
@@ -392,7 +393,7 @@ public class RowDeserializerCodeGeneratorTests {
     Row expected = deserializeDummy(record1Schema, record2Schema, serializeAvro(record));
 
     // Compare with Regular way and Generated Code results
-    Assert.assertEquals(expected, row);
+    Assertions.assertEquals(expected, row);
   }
 
   @Test
@@ -436,7 +437,7 @@ public class RowDeserializerCodeGeneratorTests {
     Row expected = deserializeDummy(record1Schema, record2Schema, serializeAvro(record));
 
     // Compare with Regular way and Generated Code results
-    Assert.assertEquals(expected, row);
+    Assertions.assertEquals(expected, row);
   }
 
   private Row deserialize(Schema writerSchema, Schema readerSchema, Decoder decoder) {
