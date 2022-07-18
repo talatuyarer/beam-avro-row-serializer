@@ -21,3 +21,19 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+/.gradle/buildOutputCleanup/cache.properties
+/.gradle/checksums/checksums.lock
+/.idea/codeStyles
+/.idea/compiler.xml
+/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock
+/.gradle/7.1/executionHistory/executionHistory.lock
+/.gradle/7.1/fileHashes/fileHashes.lock
+/.gradle/7.1/dependencies-accessors/gc.properties
+/.gradle/7.1/gc.properties
+/.gradle/vcs-1/gc.properties
+/.idea/gradle.xml
+/.idea/jarRepositories.xml
+/.gradle/7.1/fileChanges/last-build.bin
+/.idea/misc.xml
+/.idea/vcs.xml

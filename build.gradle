@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'com.uyarer.beam.serdes'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.avro:avro:1.8.2'
+    implementation 'org.apache.beam:beam-sdks-java-core:2.32.0'
+    implementation 'org.apache.beam:beam-runners-direct-java:2.32.0'
+    implementation group: 'org.apache.beam', name: 'beam-sdks-java-extensions-sql', version:'2.32.0'
+    implementation group: 'org.apache.commons', name: 'commons-text', version: '1.7'
+    implementation group: 'org.glassfish.jaxb', name: 'codemodel', version: '3.0.0'
+
+    testImplementation group: 'junit', name: 'junit', version: "2.3.1"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+}
+
+test {
+    useJUnitPlatform()
+}
